@@ -6,10 +6,15 @@ package ifnmg.edu.com.br.grupostrabalho;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,6 +31,32 @@ public class Atuacao implements Serializable {
     private LocalDate inicio;
 
     private LocalDate termino;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pessoa_id")
+    @JsonbTransient
+    private Pessoa pessoa;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "grupo_id")
+    @JsonbTransient
+    private Grupo grupo;
+
+    //<editor-fold defaultstate="collapsed" desc="Construtores">
+    public Atuacao() {
+    }
+
+    public Atuacao(LocalDate inicio, LocalDate termino, Grupo grupo) {
+        this.inicio = inicio;
+        this.termino = termino;
+        this.grupo = grupo;
+    }
+
+    public Atuacao(LocalDate inicio, Grupo grupo) {
+        this.inicio = inicio;
+        this.grupo = grupo;
+    }
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getter/Setter">
     public Long getId() {
@@ -52,27 +83,45 @@ public class Atuacao implements Serializable {
         this.termino = termino;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Hash/Equals/ToString">
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 5;
+        hash = 73 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Atuacao)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Atuacao other = (Atuacao) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
+
+        return hashCode() == obj.hashCode();
     }
 
     @Override
@@ -80,4 +129,5 @@ public class Atuacao implements Serializable {
         return "ifnmg.edu.com.br.grupostrabalho.Atuacao[ id=" + id + " ]";
     }
     //</editor-fold>
+
 }

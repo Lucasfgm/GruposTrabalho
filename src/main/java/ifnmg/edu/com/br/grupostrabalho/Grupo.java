@@ -5,11 +5,18 @@
 package ifnmg.edu.com.br.grupostrabalho;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 
 /**
  *
@@ -26,6 +33,14 @@ public class Grupo implements Serializable {
     private String nome;
 
     private Boolean ativo = true;
+
+    @OneToMany(mappedBy = "grupo",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Atuacao> atuacoes;
+
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "lider_id")
+    @JsonbTransient
+    private Pessoa lider;
 
     //<editor-fold defaultstate="collapsed" desc="Getter/Setter">
     public Long getId() {
@@ -52,10 +67,25 @@ public class Grupo implements Serializable {
         this.ativo = ativo;
     }
 
+    public List<Atuacao> getAtuacoes() {
+        return atuacoes;
+    }
+
+    public void setAtuacoes(List<Atuacao> atuacoes) {
+        this.atuacoes = atuacoes;
+    }
+
+    public Pessoa getLider() {
+        return lider;
+    }
+
+    public void setLider(Pessoa lider) {
+        this.lider = lider;
+    }
+
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Hash/Equals/ToString">
-
     @Override
     public int hashCode() {
         int hash = 5;
@@ -74,16 +104,14 @@ public class Grupo implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        
+
         return hashCode() == obj.hashCode();
     }
-    
-    
 
     @Override
     public String toString() {
         return "ifnmg.edu.com.br.grupostrabalho.Grupo[ id=" + id + " ]";
     }
     //</editor-fold>
-    
+
 }

@@ -6,12 +6,18 @@ package ifnmg.edu.com.br.grupostrabalho;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 /**
@@ -36,6 +42,35 @@ public class Pessoa implements Serializable {
 
     @Transient
     private Byte idade;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Endereco endereco;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "pessoa_id")
+    private List<Telefone> telefones;
+
+    @OneToMany(mappedBy = "pessoa",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Atuacao> atuacoes;
+
+    @OneToMany(mappedBy = "lider",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Grupo> grupos;
+
+    //<editor-fold defaultstate="collapsed" desc="Construtores">
+    public Pessoa() {
+        
+        telefones = new ArrayList<>();
+        atuacoes = new ArrayList<>();
+    }
+
+    public Pessoa(String nome, String email, LocalDate nascimento, Byte idade) {
+        this.nome = nome;
+        this.email = email;
+        this.nascimento = nascimento;
+        this.idade = idade;
+    }
+    //</editor-fold>
+    
 
     //<editor-fold defaultstate="collapsed" desc="Getter/Setter">
     public Long getId() {
@@ -74,8 +109,36 @@ public class Pessoa implements Serializable {
         return idade;
     }
 
-    public void setIdade(Byte idade) {
-        this.idade = idade;
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
+    }
+
+    public List<Atuacao> getAtuacoes() {
+        return atuacoes;
+    }
+
+    public void setAtuacoes(List<Atuacao> atuacoes) {
+        this.atuacoes = atuacoes;
+    }
+
+    public List<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
     }
 
     //</editor-fold>
@@ -104,4 +167,5 @@ public class Pessoa implements Serializable {
     }
 
     //</editor-fold>
+    
 }
