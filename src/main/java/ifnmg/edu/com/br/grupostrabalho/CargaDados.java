@@ -116,27 +116,27 @@ public class CargaDados implements CargaDadosLocal {
 
         //<editor-fold defaultstate="collapsed" desc="Atuacoes">
         p1.setAtuacoes(List.of(
-                new Atuacao(LocalDate.of(2011, 1, 1), LocalDate.of(2021, 11, 11), g1),
-                new Atuacao(LocalDate.of(2012, 1, 1), LocalDate.of(2022, 11, 11), g1)
+                new Atuacao(LocalDate.of(2011, 1, 1), LocalDate.of(2021, 11, 11), g1,p1),
+                new Atuacao(LocalDate.of(2012, 1, 1), LocalDate.of(2022, 11, 11), g1,p1)
         ));
 
         p2.setAtuacoes(List.of(
-                new Atuacao(LocalDate.of(2012, 1, 2), LocalDate.of(2021, 1, 12), g1),
-                new Atuacao(LocalDate.of(2012, 1, 2), g2),
-                new Atuacao(LocalDate.of(2012, 1, 4), LocalDate.of(2024, 1, 14), g4)
+                new Atuacao(LocalDate.of(2012, 1, 2), LocalDate.of(2021, 1, 12), g1,p2),
+                new Atuacao(LocalDate.of(2012, 1, 2), g2,p2),
+                new Atuacao(LocalDate.of(2012, 1, 4), LocalDate.of(2024, 1, 14), g4,p2)
         ));
 
         p3.setAtuacoes(List.of(
-                new Atuacao(LocalDate.of(2013, 1, 3), LocalDate.of(2021, 1, 13), g1),
-                new Atuacao(LocalDate.of(2012, 1, 3), LocalDate.of(2023, 1, 13), g3),
-                new Atuacao(LocalDate.of(2012, 1, 4), LocalDate.of(2024, 1, 14), g4)
+                new Atuacao(LocalDate.of(2013, 1, 3), LocalDate.of(2021, 1, 13), g1,p3),
+                new Atuacao(LocalDate.of(2012, 1, 3), LocalDate.of(2023, 1, 13), g3,p3),
+                new Atuacao(LocalDate.of(2012, 1, 4), LocalDate.of(2024, 1, 14), g4,p3)
         ));
 
         p4.setAtuacoes(List.of(
-                new Atuacao(LocalDate.of(2014, 1, 4), LocalDate.of(2021, 1, 14), g1),
-                new Atuacao(LocalDate.of(2012, 1, 2), g2),
-                new Atuacao(LocalDate.of(2012, 1, 3), LocalDate.of(2023, 1, 13), g3),
-                new Atuacao(LocalDate.of(2012, 1, 4), LocalDate.of(2024, 1, 14), g4)
+                new Atuacao(LocalDate.of(2014, 1, 4), LocalDate.of(2021, 1, 14), g1,p4),
+                new Atuacao(LocalDate.of(2012, 1, 2), g2,p4),
+                new Atuacao(LocalDate.of(2012, 1, 3), LocalDate.of(2023, 1, 13), g3,p4),
+                new Atuacao(LocalDate.of(2012, 1, 4), LocalDate.of(2024, 1, 14), g4,p4)
         ));
         //</editor-fold>
 

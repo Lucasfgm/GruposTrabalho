@@ -34,27 +34,27 @@ public class Atuacao implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pessoa_id")
-    @JsonbTransient
     private Pessoa pessoa;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "grupo_id")
-    @JsonbTransient
     private Grupo grupo;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Atuacao() {
     }
 
-    public Atuacao(LocalDate inicio, LocalDate termino, Grupo grupo) {
+    public Atuacao(LocalDate inicio, LocalDate termino, Grupo grupo,Pessoa pessoa) {
         this.inicio = inicio;
         this.termino = termino;
         this.grupo = grupo;
+        this.pessoa = pessoa;
     }
 
-    public Atuacao(LocalDate inicio, Grupo grupo) {
+    public Atuacao(LocalDate inicio, Grupo grupo, Pessoa pessoa) {
         this.inicio = inicio;
         this.grupo = grupo;
+        this.pessoa = pessoa;
     }
     //</editor-fold>
 
