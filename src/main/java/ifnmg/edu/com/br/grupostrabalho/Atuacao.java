@@ -34,10 +34,12 @@ public class Atuacao implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pessoa_id")
+    @JsonbTransient
     private Pessoa pessoa;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "grupo_id")
+    @JsonbTransient
     private Grupo grupo;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
@@ -123,11 +125,7 @@ public class Atuacao implements Serializable {
 
         return hashCode() == obj.hashCode();
     }
-
-    @Override
-    public String toString() {
-        return "ifnmg.edu.com.br.grupostrabalho.Atuacao[ id=" + id + " ]";
-    }
+    
     //</editor-fold>
 
 }

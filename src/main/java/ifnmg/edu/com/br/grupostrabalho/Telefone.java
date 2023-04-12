@@ -87,12 +87,6 @@ public class Telefone implements Serializable {
         
         return hashCode() == obj.hashCode();
     }
-
     
-
-    @Override
-    public String toString() {
-        return "ifnmg.edu.com.br.grupostrabalho.Telefone[ id=" + id + " ]";
-    }
     //</editor-fold>
 }

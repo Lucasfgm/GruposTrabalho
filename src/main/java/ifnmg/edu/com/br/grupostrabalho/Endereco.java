@@ -114,11 +114,7 @@ public class Endereco implements Serializable {
         }
         return hashCode() == obj.hashCode();
     }
-
-    @Override
-    public String toString() {
-        return "ifnmg.edu.com.br.grupostrabalho.Endereco[ id=" + id + " ]";
-    }
+    
     //</editor-fold>
 
 }

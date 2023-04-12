@@ -5,6 +5,7 @@
 package ifnmg.edu.com.br.grupostrabalho;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.json.bind.annotation.JsonbTransient;
@@ -41,6 +42,7 @@ public class Grupo implements Serializable {
     @JoinColumn(name = "lider_id")
     @JsonbTransient
     private Pessoa lider;
+    
 
     //<editor-fold defaultstate="collapsed" desc="Getter/Setter">
     public Long getId() {
@@ -107,11 +109,7 @@ public class Grupo implements Serializable {
 
         return hashCode() == obj.hashCode();
     }
-
-    @Override
-    public String toString() {
-        return "ifnmg.edu.com.br.grupostrabalho.Grupo[ id=" + id + " ]";
-    }
+    
     //</editor-fold>
 
 }
