@@ -11,7 +11,7 @@ import javax.ejb.Local;
  * @author Lucas Flavio<lucasfgm at ifnmg.edu.br>
  */
 @Local
-public interface PopularBancoLocal {
+public interface CargaDadosLocal {
     
     void popularBanco();
     
