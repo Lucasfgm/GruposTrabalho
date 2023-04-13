@@ -77,6 +77,52 @@ public interface PessoaBeanLocal {
      public List<String> findQuantidadeTelefonesPorPessoa();
     //</editor-fold>
      
+    //<editor-fold defaultstate="collapsed" desc="Questao 11">
+    public List<Grupo> findGruposInativos();
+    //</editor-fold>
      
+    //<editor-fold defaultstate="collapsed" desc="Questao 12">
+    public List<String[]> findLideresGrupos();
+    //</editor-fold>
+      
+    //<editor-fold defaultstate="collapsed" desc="Questao 13">
+      public List<String> findMembrosGrupo(String nomeGrupo);
+      //</editor-fold>
+      
+    //<editor-fold defaultstate="collapsed" desc="Questao 14">      
+    public List<Grupo> findGruposPorLider(String nomeLider);
+    //</editor-fold>
+      
+    //<editor-fold defaultstate="collapsed" desc="Questao 15">
+    public List<Object[]> findDatasAtuacaoGrupo(String nomeMembro);
+    //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="Questao 16">
+    public List<Grupo> findGrupoByNome(String nomeGrupo);
+    //</editor-fold>
+       
+    //<editor-fold defaultstate="collapsed" desc="Questao 17">
+    public List<Object[]> findNomeGrupoQuantidadeMembros();
+    //</editor-fold>
+       
+    //<editor-fold defaultstate="collapsed" desc="Questao 18">
+    public List<Object[]> findNomeGrupoPorTotalAtuacoes(Long total);
+    //</editor-fold>
+       
+    //<editor-fold defaultstate="collapsed" desc="Questao 19">
+    public List<String> findNomePessoaPorDataEntradaEmGrupo(Long grupoId, LocalDate dataInicio);
+    //</editor-fold>
+       
+    //<editor-fold defaultstate="collapsed" desc="Questao 20">
+    public List<MembroDto> findMembroDto(LocalDate dataInicio);
+    //</editor-fold>
+       
+    //<editor-fold defaultstate="collapsed" desc="Questao 21">
+    public List<String[]> findGruposEPessoaSemDataTermino();
+    //</editor-fold>
+       
+    //<editor-fold defaultstate="collapsed" desc="Quastao 22">
+    public List<String[]> findLiderMembrosGrupos();
+    //</editor-fold>
+       
 }
